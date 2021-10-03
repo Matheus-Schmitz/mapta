@@ -1,0 +1,6 @@
+include *.pt
+include *.joblib
+include *.bin
+include avaxtar/*.pt
+include avaxtar/*.joblib
+include avaxtar/*.bin
