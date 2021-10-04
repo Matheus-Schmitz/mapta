@@ -89,10 +89,10 @@ class MAPTA():
 			return clean
 
 	def predict(self, text):
-		text = clean_sentence(text)
+		text = self.clean_sentence(text)
 		text.replace('', np.nan, inplace=True)
 		text.dropna(inplace=True)
-		embeddings = sent2vec_model.embed_sentences(text.values)
+		embeddings = self.sent2vec_model.embed_sentences(text.values)
 
 		lgbt_score = self.model_lgbt.predict_proba(embeddings)
 		drug_score = self.model_drug.predict_proba(embeddings)
