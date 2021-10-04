@@ -90,7 +90,7 @@ class MAPTA():
 
 	def predict(self, text):
 		text = self.clean_sentence(text)
-		text.replace('', np.nan, inplace=True)
+		text = text.replace('', np.nan)
 		text.dropna(inplace=True)
 		embeddings = self.sent2vec_model.embed_sentences(text.values)
 
