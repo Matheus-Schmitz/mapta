@@ -9,7 +9,7 @@ classifiers = [
 
 setup(
 	name='mapta',
-	version='0.0.12',
+	version='0.0.02',
 	description='Classify a text as belonging to LGBTQ+ commuty and drug user community.',
 	py_modules=["Mapta",  "Pytorch_NN"],
 	author = 'Matheus Schmitz',
