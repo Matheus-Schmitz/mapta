@@ -92,8 +92,8 @@ class MAPTA():
 		text = self.clean_sentence(text)
 		#text = text.replace('', np.nan)
 		print(f"Preprocessed text: {text}")
-		text.dropna(inplace=True)
-		embeddings = self.sent2vec_model.embed_sentences(text.values)
+		#text.dropna(inplace=True)
+		embeddings = self.sent2vec_model.embed_sentences(text)
 
 		lgbt_score = self.model_lgbt.predict_proba(embeddings)
 		drug_score = self.model_drug.predict_proba(embeddings)
