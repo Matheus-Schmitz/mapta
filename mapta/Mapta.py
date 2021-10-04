@@ -39,9 +39,9 @@ class MAPTA():
 			gdown.download(url, output, quiet=False)
 
 		# Load Sent2Vec model
+		print('Loading Sent2Vec model...')
 		self.sent2vec_model = sent2vec.Sent2vecModel()
 		self.sent2vec_model.load_model('/' + self.package_path + '/' + 'wiki_unigrams.bin')
-
 
 		# Set stopwords
 		self.stop = stopwords.words('english')
@@ -54,7 +54,8 @@ class MAPTA():
 		self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 		# LGBT model
-		self.model_lgbt = Pytorch_NN.PytorchNN(num_features=timeseries_features.shape[1], 
+		print("Loading LGBT model...")
+		self.model_lgbt = Pytorch_NN.PytorchNN(num_features=600, 
 											   learning_rate=1e-4, 
 											   optimizer=torch.optim.AdamW, 
 											   loss_fn=nn.BCELoss(), 
@@ -64,7 +65,8 @@ class MAPTA():
 		self.model_lgbt = model_lgbt.to(device)
 
 		# Drug model
-		self.model_drug = Pytorch_NN.PytorchNN(num_features=timeseries_features.shape[1], 
+		print("Loading drug model...")
+		self.model_drug = Pytorch_NN.PytorchNN(num_features=600, 
 											   learning_rate=1e-4, 
 											   optimizer=torch.optim.AdamW, 
 											   loss_fn=nn.BCELoss(), 
