@@ -1,6 +1,6 @@
 # Custom Pytorch NN
-import Pytorch_NN
 import mapta
+from mapta import Pytorch_NN
 
 # Py Data Stack
 import numpy as np
