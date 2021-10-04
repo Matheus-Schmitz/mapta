@@ -60,10 +60,10 @@ class MAPTA():
 											   learning_rate=1e-4, 
 											   optimizer=torch.optim.AdamW, 
 											   loss_fn=nn.BCELoss(), 
-											   device=device)
-		self.model_lgbt.load_state_dict(torch.load(self.package_path + '/' + 'model_lgbt.pt', map_location=torch.device(device)))
+											   device=self.device)
+		self.model_lgbt.load_state_dict(torch.load(self.package_path + '/' + 'model_lgbt.pt', map_location=torch.device(self.device)))
 		self.model_lgbt.eval()
-		self.model_lgbt = model_lgbt.to(device)
+		self.model_lgbt = model_lgbt.to(self.device)
 
 		# Drug model
 		print("Loading drug model...")
@@ -71,10 +71,10 @@ class MAPTA():
 											   learning_rate=1e-4, 
 											   optimizer=torch.optim.AdamW, 
 											   loss_fn=nn.BCELoss(), 
-											   device=device)
-		self.model_drug.load_state_dict(torch.load(self.package_path + '/' + 'model_drug.pt', map_location=torch.device(device)))
+											   device=self.device)
+		self.model_drug.load_state_dict(torch.load(self.package_path + '/' + 'model_drug.pt', map_location=torch.device(self.device)))
 		self.model_drug.eval()
-		self.model_drug = model_drug.to(device)
+		self.model_drug = model_drug.to(self.device)
 
 		# Scalers
 		self.scaler_lgbt = joblib.load(self.package_path + '/' + 'scaler_lgbt.joblib') 
