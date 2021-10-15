@@ -85,10 +85,10 @@ class MAPTA():
 	def clean_sentence(self, sentence):
 		clean = ' '.join([re.sub(r'[^\w\s]','',word.strip()) for word in sentence.split() if re.sub(r'[^\w\s]','',word.strip()) not in self.stop]).lower()
 		clean = ' '.join([self.lemmatizer.lemmatize(word) for word in clean.split() if len(word)>1 and 'http' not in word])
-	    if clean != 'nan':
-	        return clean
-	    else:
-	        return np.nan
+		if clean != 'nan':
+			return clean
+		else:
+			return np.nan
 
 	def predict(self, text):
 		text = self.clean_sentence(text)
