@@ -93,12 +93,12 @@ class MAPTA():
 	def predict(self, text):
 		text = self.clean_sentence(text)
 		print(f"Preprocessed text: {text}")
-		if text == np.nan:
+		if text == np.nan or text = '':
 			return [0.0, 0.0]
-		
-		embeddings = self.sent2vec_model.embed_sentences(text)
+		else:
+			embeddings = self.sent2vec_model.embed_sentences(text)
 
-		lgbt_score = self.model_lgbt.predict_proba(embeddings)
-		drug_score = self.model_drug.predict_proba(embeddings)
+			lgbt_score = self.model_lgbt.predict_proba(embeddings)
+			drug_score = self.model_drug.predict_proba(embeddings)
 
-		return [lgbt_score[1], drug_score[1]]
+			return [lgbt_score[1], drug_score[1]]
