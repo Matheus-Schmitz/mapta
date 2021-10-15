@@ -85,14 +85,17 @@ class MAPTA():
 	def clean_sentence(self, sentence):
 		clean = ' '.join([re.sub(r'[^\w\s]','',word.strip()) for word in sentence.split() if re.sub(r'[^\w\s]','',word.strip()) not in self.stop]).lower()
 		clean = ' '.join([self.lemmatizer.lemmatize(word) for word in clean.split() if len(word)>1 and 'http' not in word])
-		if clean != 'nan':
-			return clean
+	    if clean != 'nan':
+	        return clean
+	    else:
+	        return np.nan
 
 	def predict(self, text):
 		text = self.clean_sentence(text)
-		#text = text.replace('', np.nan)
 		print(f"Preprocessed text: {text}")
-		#text.dropna(inplace=True)
+		if text == np.nan:
+			return [0.0, 0.0]
+		
 		embeddings = self.sent2vec_model.embed_sentences(text)
 
 		lgbt_score = self.model_lgbt.predict_proba(embeddings)
