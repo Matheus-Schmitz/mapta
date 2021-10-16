@@ -92,7 +92,7 @@ class MAPTA():
 
 	def predict(self, text):
 		text = self.clean_sentence(text)
-		print(f"Preprocessed text: {text}")
+		#print(f"Preprocessed text: {text}")
 		if text == np.nan or text == None or text == '':
 			return [0.0, 0.0]
 		else:
