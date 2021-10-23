@@ -98,7 +98,7 @@ class MAPTA():
 		else:
 			embeddings = self.sent2vec_model.embed_sentences(text)
 
-			lgbt_score = self.model_lgbt.predict_proba(embeddings)[1]
-			drug_score = self.model_drug.predict_proba(embeddings)[1]
+			lgbt_score = self.model_lgbt.predict_proba(embeddings)
+			drug_score = self.model_drug.predict_proba(embeddings)
 
 			return [lgbt_score, drug_score]
