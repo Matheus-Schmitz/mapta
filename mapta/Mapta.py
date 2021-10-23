@@ -98,7 +98,7 @@ class MAPTA():
 		if text == np.nan or text == None or text == '':
 			return [0.0, 0.0]
 		else:
-			embeddings = self.sent2vec_model.embed_sentences(text)
+			embeddings = self.sent2vec_model.embed_sentences([text])
 			print(f"Embedding Shape: {embeddings.shape}")
 
 			lgbt_score = self.model_lgbt.predict_proba(embeddings)
