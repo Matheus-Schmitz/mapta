@@ -245,7 +245,7 @@ class PytorchNN(nn.Module):
 	def predict_proba(self, X_input):
 		self.eval()
 		result = []
-		print(f"1: {type(X_input)}")
+
 		# Predict from PyTorch dataloader
 		if type(X_input) == torch.utils.data.dataloader.DataLoader:
 
@@ -264,8 +264,6 @@ class PytorchNN(nn.Module):
 					else:
 						result = np.concatenate((result, class_proba))
 
-				print(f"2: {type(X_input)}")
-				print(f"3: {X_input.shape}")
 				return result
 		
 		# Predict from Numpy array or list
@@ -289,9 +287,7 @@ class PytorchNN(nn.Module):
 							result = class_proba
 						else:
 							result = np.concatenate((result, class_proba))
-							
-					print(f"2: {type(X_input)}")
-					print(f"3: {X_input.shape}")
+
 					return result
 
 			else:
