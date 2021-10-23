@@ -97,6 +97,7 @@ class MAPTA():
 			return [0.0, 0.0]
 		else:
 			embeddings = self.sent2vec_model.embed_sentences(text)
+			print(f"Embedding Shape: {embeddings.shape}")
 
 			lgbt_score = self.model_lgbt.predict_proba(embeddings)
 			drug_score = self.model_drug.predict_proba(embeddings)
