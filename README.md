@@ -52,7 +52,7 @@ LGBT:
 Drugs:
 ![Drugs Predicted Class Probabilities](/images/drugs_predicted_class_probabilities.png?raw=true)
 
-After optimizing the prediction threshold so as to maximize F1 Scores, the following optimal thresholds are found, and the improvement in Confusion Matrix is displayed alongside.
+After optimizing the prediction threshold so as to maximize F1 Scores, the following optimal thresholds are found, and the improvement in Confusion Matrix is displayed alongside. Confusion Matrix is measured on a test dataset which was not utilized during threshold optimization.
 
 LGBT:
 ![LGBT F1 Score Optimization](/images/lgbt_F1_vs_thresholds.png?raw=true)
@@ -69,3 +69,16 @@ As a result of this analysis, we recommend that users utilize the following thre
 LGBT: 0.2015
 
 Drugs: 0.1041
+
+## Results Analysis
+
+To assess MAPTA's performance we utilize the model to generate predictions on the test dataset, then select only high confidence predictions for out target class, which is people who belong to BOTH the LGBTQ+ community and the Drug User community. To select those users we multiply both scores and then classify only users whose metric is above 0.9^2 = 0.82. We constrast those users with a set of control users whose combined metric is below 0.1^2 = 0.01. Below we present the results of our analysis that confirms the models proper functioning.
+
+Word Frequencies:
+![Word Frequencies](/images/Word_Frequencies.png?raw=true)
+
+Affect (Emotions and Sentiment):
+![Affect](/images/Affect.png?raw=true)
+
+TF-IDF:
+![TF-IDF](/images/TF_IDF.png?raw=true)
