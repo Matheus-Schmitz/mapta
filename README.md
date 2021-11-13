@@ -74,8 +74,7 @@ Drugs: 0.1041
 
 To assess MAPTA's performance we utilize the model to generate predictions on the test dataset, then select only high confidence predictions for out target class, which is people who belong to BOTH the LGBTQ+ community and the Drug User community. To select those users we multiply both scores and then classify only users whose metric is above 0.9^2 = 0.82. We constrast those users with a set of control users whose combined metric is below 0.1^2 = 0.01. Below we present the results of our analysis that confirms the models proper functioning.
 
-Word Frequencies:
-![Word Frequencies](/images/Word_Frequencies.png?raw=true)
+![Word Frequencies](/images/Word_Frequencies.png?raw=true "Word Frequencies")
 
 Affect (Emotions and Sentiment):
 ![Affect](/images/Affect.png?raw=true)
