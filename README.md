@@ -21,6 +21,8 @@ pip install .
 
 ## Sample usage
 
+Note that the model outputs a list of [LGBT score, Drug score]
+
 ```python
 from mapta import Mapta
 
@@ -59,3 +61,11 @@ LGBT:
 Drugs:
 ![Drugs F1 Score Optimization](/images/drugs_F1_vs_thresholds.png?raw=true)
 ![Drugs Confusion Matrix](/images/drugs_threshold_optimization_confusion_matrix.png?raw=true)
+
+### Classification Recommendations
+
+As a result of this analysis, we recommend that users utilize the following thresholds to classify samples:
+
+LGBT: 0.2015
+
+Drugs: 0.1041
