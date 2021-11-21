@@ -76,6 +76,6 @@ To assess MAPTA's performance we utilize the model to generate predictions on th
 
 ![Word Frequencies](/images/Word_Frequencies.png?raw=true "Word Frequencies")  
   
-![Affect](/images/Affect.png?raw=true "Affect")  
+![Affect](/images/Target Affect.png?raw=true "Affect")  
   
-![TF-IDF](/images/TF_IDF.png?raw=true "TF-IDF")  
+![TF-IDF](/images/Target TF_IDF.png?raw=true "TF-IDF")  
