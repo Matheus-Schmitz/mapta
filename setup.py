@@ -27,7 +27,7 @@ setup(
           'gdown == 3.10.1',
           'matplotlib >= 3.4.0, < 4.0.0',
           'seaborn >= 0.11.0',
-          'nrclex == 1.5.0',
+          'nrclex == 3.0.0',
           #'sent2vec @ git+https://github.com/epfml/sent2vec.git@v1#egg=sent2vec',
           'sent2vec @ git+https://github.com/epfml/sent2vec.git',
           #'sent2vec @ git+ssh://git@github.com/example_org/sent2vec.git'
