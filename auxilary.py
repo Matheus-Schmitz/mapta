@@ -130,7 +130,7 @@ def getAnalysis(sentences, model):
                         
     return output.copy()
 
-def batchUpload(model): 
+def batchUpload(upload, model): 
 
     for uploaded_filename in upload.value:
         print("Upload file {}".format(uploaded_filename))
