@@ -44,8 +44,8 @@ def get_affect(text):
     if 'anticipation' not in affect_dict:
         affect_dict['anticipation'] = np.NaN
     return affect_dict
-    
-def getSingleOuput(text): 
+
+def getSingleOuput(text, model): 
     # Predict
     output = model.predict(text)
     output_df = pd.DataFrame([["LGBT", output[0]*100], ["Drug", output[1]*100]], columns = ["Group", "Probability"])
@@ -109,7 +109,7 @@ def parseContent(content):
     sentences = content.split("\n")
     return sentences
 
-def getAnalysis(sentences): 
+def getAnalysis(sentences, model): 
     """
     Input: a list of sentences 
     Output: anlysis result in a dataframe
@@ -130,7 +130,7 @@ def getAnalysis(sentences):
                         
     return output.copy()
 
-def batchUpload(): 
+def batchUpload(model): 
 
     for uploaded_filename in upload.value:
         print("Upload file {}".format(uploaded_filename))
@@ -138,7 +138,7 @@ def batchUpload():
         break
     print("Generating output")
     sentences = parseContent(content)
-    output = getAnalysis(sentences)
+    output = getAnalysis(sentences, model)
     output["anticipation"] = output["anticipation"].fillna(0)
     print("Done!")
     output.to_csv("output.csv")
