@@ -49,6 +49,7 @@ def getSingleOuput(text, model):
     # Predict
     output = model.predict(text)
     output_df = pd.DataFrame([["LGBT", output[0]*100], ["Drug", output[1]*100]], columns = ["Group", "Probability"])
+    fig, ax = plt.subplots(ncols=1, figsize=(8,5))
     sns.barplot(x = 'Group', y = 'Probability', data = output_df, hue = "Group")
     plt.ylim(0, 100)
     plt.title("Predicted Probability Distributions")
@@ -147,6 +148,7 @@ def batchUpload(upload, model):
     num_lgbt = len(output[output["LGBT"]>=lgbt_threshold])
     num_drug = len(output[output["drug"]>=drug_threshold])
     agg = pd.DataFrame([["LGBT", num_lgbt], ["Drug", num_drug]], columns=["Group", "Number"])
+    fig, ax = plt.subplots(ncols=1, figsize=(8,5))
     sns.barplot(data=agg, x="Group", y='Number', alpha=0.8)
     plt.title("Number of Samples in LGBT and Drug Groups")
     plt.show()
