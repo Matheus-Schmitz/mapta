@@ -86,8 +86,8 @@ def getSingleOuput(text, model):
     plt.xticks(fontsize=25, rotation=30)
     plt.yticks(fontsize=20)
     plt.xlabel(None)
-    plt.ylabel('', fontsize=30, weight='normal', labelpad=20)
-    plt.title('Emotions', size=30, weight='normal')
+    plt.ylabel('', fontsize=18, weight='normal', labelpad=20)
+    plt.title('Emotions', size=22, weight='normal')
 
     fig.sca(ax[1])
     sns.barplot(data=df_sentiments, x=df_sentiments.index, y='percentage', color='deepskyblue', alpha=0.8)
@@ -98,8 +98,8 @@ def getSingleOuput(text, model):
     plt.xticks(fontsize=25, rotation=30)
     plt.yticks(fontsize=20)
     plt.xlabel(None)
-    plt.ylabel('', fontsize=30, weight='normal', labelpad=20)
-    plt.title('Sentiments', size=30, weight='normal')
+    plt.ylabel('', fontsize=18, weight='normal', labelpad=20)
+    plt.title('Sentiments', size=22, weight='normal')
 
     fig.align_xlabels(ax)
     fig.tight_layout()
