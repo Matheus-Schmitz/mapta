@@ -74,7 +74,7 @@ def getSingleOuput(text, model):
     # Calculate relative percentages
     df_emotions['percentage'] = df_emotions['scores']/df_emotions['scores'].sum()
     df_sentiments['percentage'] = df_sentiments['scores']/df_sentiments['scores'].sum()
-    fig, ax = plt.subplots(ncols=2, figsize=(16,9), gridspec_kw={'width_ratios': [1, 4]})
+    fig, ax = plt.subplots(ncols=2, figsize=(8,5), gridspec_kw={'width_ratios': [1, 4]})
 
     fig.sca(ax[0])
     sns.barplot(data=df_emotions, x=df_emotions.index, y='percentage', color='gold', alpha=0.8)
