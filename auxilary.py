@@ -142,7 +142,10 @@ def batchUpload(upload, model):
     output = getAnalysis(sentences, model)
     output["anticipation"] = output["anticipation"].fillna(0)
     print("Done!")
-    output.to_csv("output.csv")
+    if "anticip" in output.columns: 
+        output.drop(columns = ["anticip"], inplace=True)
+    results = output.drop(columns = ["text"]).copy()
+    results.to_csv("results.csv", index=False)
     lgbt_threshold = 0.2015
     drug_threshold = 0.1041
     num_lgbt = len(output[output["LGBT"]>=lgbt_threshold])
